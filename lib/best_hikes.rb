@@ -1,6 +1,8 @@
-require "best_hikes/version"
+require_relative "best_hikes/version"
+#require "nokogiri"
+#require "open-uri"
+#require "pry"
 
-module BestHikes
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./best_hikes/cli"
+require_relative "./best_hikes/scraper"
+require_relative "./best_hikes/hikes"

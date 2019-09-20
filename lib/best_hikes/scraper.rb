@@ -1,0 +1,5 @@
+class BestHikes::Scraper
+  
+  
+  
+end
