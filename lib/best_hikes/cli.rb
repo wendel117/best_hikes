@@ -2,15 +2,20 @@ class BestHikes::CLI
   
   def call 
     puts "Welcome to the Best Hikes in Every State"
+    get_states
     list_states
     #menu
     goodbye
   end
+  
+  def get_states
+    BestHikes::Scraper.scrape_states
+  end
 
   def list_states
-    states = BestHikes::Scraper.scrape_states
+    states = BestHikes::States.all
     states.each.with_index(1) do |state, i|
-      puts "#{i}. #{state.name}"
+      puts "#{i}. #{state}"
   end
   
   # def menu
