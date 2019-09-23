@@ -15,7 +15,7 @@ class BestHikes::CLI
   def list_states
     states = BestHikes::States.all
     states.each.with_index(1) do |state, i|
-      puts "#{i}. #{state}"
+      puts "#{i}. #{state.name}"
   end
   
   # def menu

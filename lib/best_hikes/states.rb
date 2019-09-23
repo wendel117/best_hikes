@@ -1,9 +1,9 @@
 class BestHikes::States 
-  attr_reader :name
+  attr_accessor :name
   attr_reader :hike
   @@all = []
   
-  def initialize
+  def initialize(name)
     @name = name
     @hike = []
     @@all << self
