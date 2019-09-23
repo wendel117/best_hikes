@@ -1,7 +1,7 @@
 require_relative "best_hikes/version"
-#require "nokogiri"
-#require "open-uri"
-#require "pry"
+require "nokogiri"
+require "open-uri"
+require "pry"
 
 require_relative "./best_hikes/cli"
 require_relative "./best_hikes/scraper"
