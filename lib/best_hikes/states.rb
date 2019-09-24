@@ -13,7 +13,7 @@ class BestHikes::States
     @@all 
   end
   
-  def hikes 
+  def get_hikes 
     BestHikes::Scraper.scrape_hikes(self) if @hikes.empty?
     @hikes
   end

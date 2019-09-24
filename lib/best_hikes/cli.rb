@@ -2,22 +2,28 @@ class BestHikes::CLI
   
   def call 
     puts "Welcome to the Best Hikes in Every State directory!\n"
+    scrape_states
+    list_states
+    menu
+    goodbye
   end
   
+  def scrape_states
+    BestHikes::Scraper.scrape_states
+  end
   def list_states
     @states = BestHikes::States.all
     @states.each.with_index(1) do |state, i|
-      puts "#{i}. #{state.name}\n\n"
-      
-    puts "Select the number of a state to view the top hike!"
-    input = gets.strip.to_i
-    if input.between?(1,50)
-      @hikes = BestHikes::Hikes.all 
-      binding.pry
-      the_hikes = @hikes[input-1]
-      puts "\n#{the_hikes.description} is the top hike in that state!\n\n"
+      puts "#{i}. #{state.name}"
+    end 
+  end
+   
+  def menu
+    puts "\nSelect the number of a state to view the top hike!"
+    input = gets.strip.to_i 
+    
       #binding.pry
-    end
+    
   end
   
   def goodbye
