@@ -18,5 +18,10 @@ class BestHikes::Scraper
     end
   end
  
-  
+ def self.scrape_hike_description
+   doc = Nokogiri::HTML(open("https://www.outsideonline.com/2393036/50-best-hikes-us"))
+   array_information = doc.css("div.article__body p").children.text
+   binding.pry
+ end
+
 end

@@ -6,8 +6,13 @@ class BestHikes::CLI
     list_states
     get_hikes
     list_hikes
+    get_description
     #menu
     goodbye
+  end
+  
+  def get_description
+    BestHikes::Scraper.scrape_hike_description
   end
   
   def get_states
