@@ -1,13 +1,11 @@
 class BestHikes::CLI
   
   def call 
-    puts "Welcome to the Best Hikes in Every State"
+    puts "Welcome to the Best Hikes in Every State directory!\n"
     get_states
     list_states
     get_hikes
-    list_hikes
-    list_hike_descriptions
-    #menu
+    menu
     goodbye
   end
   
@@ -25,12 +23,11 @@ class BestHikes::CLI
       puts "#{i}. #{state.name}"
   end
   
-   def list_hikes
-    hikes = BestHikes::Hikes.all
-    hikes.each.with_index(1) do |hike, i|
-      puts "#{i}. #{hike.name}"
-  end
-  
+  def menu
+    puts "Select the number of a state to view the top hike!"
+    input = gets.strips.to_i-1
+    if input.between?(1,50)
+      
   def list_hike_descriptions
     descriptions = BestHikes::Hikes.all 
     descriptions.each do |hike|
