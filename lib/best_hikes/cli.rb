@@ -6,13 +6,9 @@ class BestHikes::CLI
     list_states
     get_hikes
     list_hikes
-    get_description
+    list_hike_descriptions
     #menu
     goodbye
-  end
-  
-  def get_description
-    BestHikes::Scraper.scrape_hike_description
   end
   
   def get_states
@@ -35,6 +31,12 @@ class BestHikes::CLI
       puts "#{i}. #{hike.name}"
   end
   
+  def list_hike_descriptions
+    descriptions = BestHikes::Hikes.all 
+    descriptions.each do |hike|
+      puts "#{hike.description}"
+    end
+  
   # def menu
   #   puts "Please select number of state you'd like hiking information for:"
   #   input = gets.strip
@@ -48,6 +50,7 @@ class BestHikes::CLI
   def goodbye
     puts "Thanks for stopping by!"
   end
+end
 end
 end
 end
