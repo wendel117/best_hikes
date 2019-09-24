@@ -3,7 +3,9 @@ class BestHikes::Hikes
   @@all = []
   def initialize(name)
     @name = name
+    #@description = description
     @@all << self
+  # binding.pry
   end
   
   def self.all 

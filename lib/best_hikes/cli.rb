@@ -3,8 +3,8 @@ class BestHikes::CLI
   def call 
     puts "Welcome to the Best Hikes in Every State directory!\n"
     get_states
-    list_states
     get_hikes
+    list_states
     menu
     goodbye
   end
@@ -29,9 +29,10 @@ class BestHikes::CLI
     input = gets.strip.to_i
     if input.between?(1,50)
       @hikes = BestHikes::Hikes.all 
-      the_hikes = @hikes[input.to_i-1]
-      puts "\n#{the_hikes.name} is the top hike in that state!\n\n"
-      puts "#{the_hikes.description}"
+      binding.pry
+      the_hikes = @hikes[input-1]
+      puts "\n#{the_hikes.description} is the top hike in that state!\n\n"
+      #binding.pry
     end
   end
   

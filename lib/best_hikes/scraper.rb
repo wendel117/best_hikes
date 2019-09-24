@@ -20,8 +20,8 @@ class BestHikes::Scraper
       descriptions_final = array_descriptions[1..-1]
       descriptions_final.each do |descriptions|
       hike.description = descriptions.text
-      binding.pry
+      
     end
-  end
+end
 end
 end
