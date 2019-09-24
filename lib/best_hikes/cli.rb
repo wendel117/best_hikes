@@ -4,6 +4,8 @@ class BestHikes::CLI
     puts "Welcome to the Best Hikes in Every State"
     get_states
     list_states
+    get_hikes
+    list_hikes
     #menu
     goodbye
   end
@@ -11,11 +13,21 @@ class BestHikes::CLI
   def get_states
     BestHikes::Scraper.scrape_states
   end
-
+  
+  def get_hikes
+    BestHikes::Scraper.scrape_hikes
+  end
+  
   def list_states
     states = BestHikes::States.all
     states.each.with_index(1) do |state, i|
       puts "#{i}. #{state.name}"
+  end
+  
+   def list_hikes
+    hikes = BestHikes::Hikes.all
+    hikes.each.with_index(1) do |hike, i|
+      puts "#{i}. #{hike.name}"
   end
   
   # def menu
@@ -31,5 +43,6 @@ class BestHikes::CLI
   def goodbye
     puts "Thanks for stopping by!"
   end
+end
 end
 end
