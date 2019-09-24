@@ -1,14 +1,20 @@
 class BestHikes::Hikes 
-  attr_accessor :name, :description
+  attr_accessor :name, :state
   @@all = []
-  def initialize(name)
-    @name = name
-    #@description = description
-    @@all << self
-  # binding.pry
+  
+  def initialize(name, state)
+    @name = name 
+    @state = state 
+    @state.hikes << self
+    save
   end
   
-  def self.all 
+  def save 
+    @@all << self 
+  end
+  
+  def self.all
     @@all 
   end
+ 
 end

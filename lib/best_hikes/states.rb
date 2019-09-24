@@ -1,16 +1,21 @@
 class BestHikes::States 
   attr_accessor :name
-  attr_reader :hike
+  attr_reader :hikes
   @@all = []
   
   def initialize(name)
     @name = name
-    @hike = []
+    @hikes = []
     @@all << self
   end
   
   def self.all 
     @@all 
+  end
+  
+  def hikes 
+    BestHikes::Scraper.scrape_hikes(self) if @hikes.empty?
+    @hikes
   end
   
 end
