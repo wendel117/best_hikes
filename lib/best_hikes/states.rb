@@ -13,14 +13,8 @@ class BestHikes::States
     @@all 
   end
   
-  def doc
-    @doc = "https://www.outsideonline.com/2393036/50-best-hikes-us"
-  
-  def hike_name
-    @hike_name = doc.css("div.article__body h3").children.text
+  def add_hike(hike)
+    @hikes << hike
+    hike.state = self    
   end
-  
-  def hike_description
-  end
-  
 end

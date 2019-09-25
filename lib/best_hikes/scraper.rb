@@ -10,15 +10,24 @@ class BestHikes::Scraper
   end
   
   def self.scrape_hikes(state)
-    BestHikes::Hikes.new("Test 1", state)
-    BestHikes::Hikes.new("Test 2", state)
+    doc = Nokogiri::HTML(open("https://www.outsideonline.com/2393036/50-best-hikes-us"))
+    array_hikes = doc.css("div.article__body h3")
+    array_hikes.each do |hike_info|
+      hike = BestHikes::Hikes.new 
+      
+      #attributes here 
+      hike.name = doc.css("div.article__body h3").text
+      
+      array_information = doc.css("div.article__body p")
+      n = 2
+      array_descriptions = (n - 2).step(array_information.size - 2, n).map { |i| array_information[i] }
+      descriptions_final = array_descriptions[1..-1]
+      descriptions_final.each do |descriptions|
+      hikes.description = descriptions.text
+      
+      state.add_hike(hike)
+    end
   end
-  
-  # def self.scrape_hikes(state)
-  #   doc = Nokogiri::HTML(open("https://www.outsideonline.com/2393036/50-best-hikes-us"))
-  #   array_hikes = doc.css("div.article__body h3").children
-    
-  #   end
 
 
 end
