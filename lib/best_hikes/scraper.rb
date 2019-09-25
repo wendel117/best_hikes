@@ -14,8 +14,7 @@ class BestHikes::Scraper
       array_descriptions = (n - 2).step(array_information.size - 2, n).map { |i| array_information[i] }
       descriptions_final = array_descriptions[1..-1]
       state.hike_description = descriptions_final
-      
-      binding.pry
+
     
     
     end
