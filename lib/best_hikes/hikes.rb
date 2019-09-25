@@ -1,7 +1,7 @@
 class BestHikes::Hikes 
   attr_accessor :name, :description
   @@all = []
-  def initialize(name)
+  def initialize(name, description)
     @name = name
     @description = description
     @@all << self 

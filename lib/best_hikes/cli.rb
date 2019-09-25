@@ -27,12 +27,12 @@ class BestHikes::CLI
   def menu
     puts "\nSelect the number of a state to view the top hike!"
     input = gets.strip
-    index = input.to_i - 1
+    index = input.to_i
     @hikes = BestHikes::Hikes.all
     the_hike = @hikes[index]
     puts "#{the_hike.name}"
     puts "#{the_hike.description}"
-    
+  #binding.pry
     end
   
 
