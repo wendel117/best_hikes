@@ -9,7 +9,7 @@ class BestHikes::Scraper
       state.name = doc.css("div.article__body h2").children.text 
       state.hike_name = doc.css("div.article__body h3").text
       
-      array_information = doc.css("div.article__body p")
+      array_information = doc.css("div.article__body p").children
       n = 2
       array_descriptions = (n - 2).step(array_information.size - 2, n).map { |i| array_information[i] }
       descriptions_final = array_descriptions[1..-1]
