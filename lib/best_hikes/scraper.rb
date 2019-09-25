@@ -8,15 +8,15 @@ class BestHikes::Scraper
       
       state.name = doc.css("div.article__body h2").children.text 
       state.hike_name = doc.css("div.article__body h3").text
+      
       array_information = doc.css("div.article__body p")
       n = 2
       array_descriptions = (n - 2).step(array_information.size - 2, n).map { |i| array_information[i] }
       descriptions_final = array_descriptions[1..-1]
-      descriptions_final.each do |descriptions|
-      state.hike_description = descriptions.text
+      state.hike_description = descriptions_final
       
       binding.pry
-    end
+    
     
     end
   end
