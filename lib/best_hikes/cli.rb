@@ -26,10 +26,9 @@ class BestHikes::CLI
     @states = BestHikes::States.all
     state = @states[index]
     puts "#{state.name} here"
+    #puts "#{state.hike_name}"
+    #puts "#{state.hike_description}"
     
-    BestHikes::Scraper.scrape_hikes(state)
-    
-    #binding.pry
     end
   
 
