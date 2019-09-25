@@ -31,6 +31,7 @@ class BestHikes::CLI
     @hikes = BestHikes::Hikes.all
     the_hike = @hikes[index]
     puts "#{the_hike.name}"
+    puts "#{the_hike.description}"
     
     end
   

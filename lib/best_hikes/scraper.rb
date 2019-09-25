@@ -13,16 +13,16 @@ class BestHikes::Scraper
     array_hikes = doc.css("div.article__body h3").children
       array_hikes.each do |name|
       hike = BestHikes::Hikes.new(name)
+      
+      array_information = doc.css("div.article__body p")
+      n = 2
+      array_descriptions = (n - 2).step(array_information.size - 2, n).map { |i| array_information[i] }
+      descriptions_final = array_descriptions[1..-1]
+      descriptions_final.each do |description|
+      hike.description = description.text
     end
   end
-      
-      # array_information = doc.css("div.article__body p").children
-      # n = 2
-      # array_descriptions = (n - 2).step(array_information.size - 2, n).map { |i| array_information[i] }
-      # descriptions_final = array_descriptions[1..-1]
-      # descriptions_final.each do |description|
-      # state.hike_description = description
-      # array_of_movies = index_page.css("div.countdown-item")
+  end
 
     
 end
