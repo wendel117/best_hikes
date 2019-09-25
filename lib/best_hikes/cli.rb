@@ -11,6 +11,7 @@ class BestHikes::CLI
   def scrape_states
     BestHikes::Scraper.scrape_states
   end
+  
   def list_states
     @states = BestHikes::States.all
     @states.each.with_index(1) do |state, i|
@@ -20,12 +21,18 @@ class BestHikes::CLI
    
   def menu
     puts "\nSelect the number of a state to view the top hike!"
-    input = gets.strip.to_i 
+    input = gets.strip
+    index = input.to_i - 1
+    @states = BestHikes::States.all
+    state = @states[index]
+    puts "#{state.name} here"
     
-      #binding.pry
+    BestHikes::Scraper.scrape_hikes(state)
     
-  end
+    #binding.pry
+    end
   
+
   def goodbye
     puts "Thanks for stopping by!"
   end
