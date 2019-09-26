@@ -4,6 +4,7 @@ class BestHikes::CLI
     puts "Welcome to the Best Hikes in Every State directory!\n"
     scrape_states
     scrape_hikes
+    scrape_info
     list_states
     menu
     goodbye
@@ -15,6 +16,10 @@ class BestHikes::CLI
   
   def scrape_hikes 
     BestHikes::Scraper.scrape_hikes
+  end
+  
+  def scrape_info
+    BestHikes::Scraper.scrape_info
   end
   
   def list_states
@@ -29,9 +34,11 @@ class BestHikes::CLI
     input = gets.strip
     index = input.to_i
     @hikes = BestHikes::Hikes.all
-    the_hike = @hikes[index]
+    the_hike = @hikes[index-1]
     puts "#{the_hike.name}"
-    puts "#{the_hike.description}"
+    @description = BestHikes::Information.all 
+    the_description = @description[index-1]
+    puts "#{the_description.description}"
   #binding.pry
     end
   
