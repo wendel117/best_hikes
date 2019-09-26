@@ -25,7 +25,6 @@ class BestHikes::Scraper
       descriptions_final = array_descriptions[1..-1]
       descriptions_final.each do |description|
         hike_info = BestHikes::Information.new(description.text)
-      #binding.pry
       end 
   end
 
