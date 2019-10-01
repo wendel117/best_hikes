@@ -48,12 +48,6 @@ class BestHikes::CLI
     
     if index.between?(1,50) 
       show_hike_info(index)
-      # @hikes = BestHikes::Hikes.all
-      # the_hike = @hikes[index-1]
-      # puts "\n#{the_hike.name}"
-      # @description = BestHikes::Information.all 
-      # the_description = @description[index-1]
-      # puts "\n#{the_description.description}"
     elsif input == "list"
       list_states
     elsif input == "exit"
