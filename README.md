@@ -1,8 +1,6 @@
 # BestHikes
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/best_hikes`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to Best Hikes of America! This application allows you to choose any state in the U.S. and learn about the top rated hike located in your chosen state. Learn about the top hikes in as many states as you want, and plan your next outdoor adventure!
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+After reading the welcome message, type in "GO" and hit enter to view our list of all 50 states. Browse our list to find the state you'd like. Once you do, enter the number correlating to that state. The top hike for the chosen state will then appear, as well as a short description. After this, you will have the option to choose another state! Enter another state number or "list" to see the list again for reference. If you'd like to leave, enter exit!
 
 ## Development
 
