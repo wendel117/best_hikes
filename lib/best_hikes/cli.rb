@@ -1,7 +1,7 @@
 class BestHikes::CLI
   
   def call 
-    puts "Welcome to the Best Hikes in Every State directory!\n"
+    welcome
     scrape_states
     scrape_hikes
     scrape_info
@@ -10,6 +10,21 @@ class BestHikes::CLI
     goodbye
   end
   
+  def welcome 
+    puts "\n****Welcome to America's Best Hikes!****\n\n"
+    puts "Find out the best hike in every state and plan your next outdoor adventure."
+    puts "Enter GO to start!"
+    input = gets.input.downcase
+    if input == "go"
+      continue
+    else 
+      puts "Invalid"
+      welcome
+  end
+  end
+  
+  def run_scraper
+    
   def scrape_states
     BestHikes::Scraper.scrape_states
   end
