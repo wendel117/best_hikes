@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+Enter ./bin/best-hikes to get started.
+
 After reading the welcome message, type in "GO" and hit enter to view our list of all 50 states. Browse our list to find the state you'd like. Once you do, enter the number correlating to that state. The top hike for the chosen state will then appear, as well as a short description. After this, you will have the option to choose another state! Enter another state number or "list" to see the list again for reference. If you'd like to leave, enter exit!
 
 ## Development
