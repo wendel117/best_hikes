@@ -33,15 +33,14 @@ class BestHikes::CLI
   end
   
   def list_states
-    states = BestHikes::States.all
-    states.each.with_index(1) do |state, i|
+    @states = BestHikes::States.all
+    @states.each.with_index(1) do |state, i|
       puts "#{i}. #{state.name}"
     end 
   end
   
   def show_hike_info(index)
-    states = BestHikes::States.all
-    the_state = states[index-1]
+    the_state = @states[index-1]
     hikes = BestHikes::Hikes.all
     the_hike = hikes[index-1]
     puts "\nBest Hike in #{the_state.name}: #{the_hike.name}"
