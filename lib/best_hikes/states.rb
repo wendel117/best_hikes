@@ -1,11 +1,9 @@
 class BestHikes::States 
-  attr_accessor :name, :hike_name, :hike_description
+  attr_accessor :name
   @@all = []
   
   def initialize(name)
     @name = name
-    @hike_name = hike_name
-    @hike_description = hike_description
     @@all << self
   end
   

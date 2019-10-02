@@ -3,14 +3,13 @@ class BestHikes::CLI
   def call 
     welcome
     intro_menu
-    #run_scraper
     list_states
     menu
     goodbye
   end
   
   def welcome 
-     puts "\n****Welcome to America's Best Hikes!****\n\n"
+    puts "\n****Welcome to America's Best Hikes!****\n\n"
     puts "Find out the best hike in every state and plan your next outdoor adventure."
   end
   
@@ -23,7 +22,7 @@ class BestHikes::CLI
         run_scraper
       else 
         puts "Invalid entry"
-     end
+      end
     end
   end
   
@@ -34,20 +33,21 @@ class BestHikes::CLI
   end
   
   def list_states
-    @states = BestHikes::States.all
-    @states.each.with_index(1) do |state, i|
+    states = BestHikes::States.all
+    states.each.with_index(1) do |state, i|
       puts "#{i}. #{state.name}"
     end 
   end
   
   def show_hike_info(index)
-     @hikes = BestHikes::Hikes.all
-      the_hike = @hikes[index-1]
-      puts "\nBest Hike: #{the_hike.name}"
-      @description = BestHikes::Information.all 
-      the_description = @description[index-1]
-      puts "\n#{the_description.description}"
-      puts "#{@state.name}"
+    states = BestHikes::States.all
+    the_state = states[index-1]
+    hikes = BestHikes::Hikes.all
+    the_hike = hikes[index-1]
+    puts "\nBest Hike in #{the_state.name}: #{the_hike.name}"
+    description = BestHikes::Information.all 
+    the_description = description[index-1]
+    puts "\n#{the_description.description}"
   end
   
   def menu
@@ -58,20 +58,20 @@ class BestHikes::CLI
     input = gets.strip.downcase
     index = input.to_i
     
-    if index.between?(1,50) 
-      show_hike_info(index)
-    elsif input == "list"
-      list_states
-    elsif input == "exit"
-      puts "\nThanks for stopping by!"
-    else 
-      puts "\nInvalid entry, please try again."
+      if index.between?(1,50) 
+        show_hike_info(index)
+      elsif input == "list"
+        list_states
+      elsif input == "exit"
+        puts "\nThanks for stopping by!"
+      else 
+        puts "\nInvalid entry, please try again."
       end
     end
   end
   
   def goodbye
-    puts "Goodbye!"
+    puts "See ya later."
   end
 
 end
