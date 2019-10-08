@@ -42,11 +42,11 @@ class BestHikes::CLI
   def show_hike_info(index)
     the_state = @states[index-1]
     hikes = BestHikes::Hikes.all
-    the_hike = hikes[index-1]
-    puts "\nBest Hike in #{the_state.name}: #{the_hike.name}"
-    description = BestHikes::Information.all 
-    the_description = description[index-1]
-    puts "\n#{the_description.description}"
+    chosen_hike = hikes[index-1]
+    puts "\nBest Hike in #{the_state.name}: #{chosen_hike.name}"
+    descriptions = BestHikes::Information.all 
+    chosen_description = descriptions[index-1]
+    puts "\n#{chosen_description.description}"
   end
   
   def menu
